@@ -9,17 +9,32 @@
 
     /* @ngInject */
     function VehicleDetailController(vehicleFactory, $stateParams) {
-        var vm = this;
+      var vm = this;
 
-        activate();
+      vm.save = save;
 
-        function activate() {
-          vehicleFactory
-          .getByid($stateParams.id)
-          .then(function(vehicles){
-            vm.vehicle = vehicles;
+      activate();
 
-          });
-        }
-    }
+      function activate() {
+        var vehicleId = $stateParams.id;
+
+        vehicleFactory
+        .getById(vehicleId)
+        .then(function(vehicles){
+          vm.vehicles = vehicles;
+        })
+        .catch(function(error){
+          alert(error)
+
+        });
+      }
+
+      function save(){
+        vehicleFactory
+        .update(vm.vehicles.vehicleID, vm.vehicles)
+        .then(function(){
+          alert('vehicle updated');
+        })
+      }
+  }
 })();

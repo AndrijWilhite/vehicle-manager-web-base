@@ -28,13 +28,13 @@
             }
           function getById(id){
             return $http
-                .get(apiUrl + id)
+                .get(apiUrl +'sales/'+ id)
                 .then(function(response){
                   return response.data;
                 });
           }
           function update(id, sales){
-                return $http.put(apiUrl + id, 'sales');
+                return $http.put(apiUrl +'sales/' + id, sales);
           }
           function create(sales){
             return $http
@@ -45,7 +45,7 @@
           }
           function remove(id){
             return $http
-            .delete(apiUrl + id)
+            .delete(apiUrl +'sales/' + id)
             .then(function(response){
               return response.data;
             });

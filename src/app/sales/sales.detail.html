@@ -1,2 +1,50 @@
-<h1>sales detail page</h1>
-<pre>{{salesDetailCtrl.state | json}}</pre>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Sale
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="customer">Customer</label>
+          <ui-select ng-model="salesDetailCtrlselectedCustomer" theme="bootstrap">
+            <ui-select-match placeholder="Select or search a customer in the list...">{{$select.selected.firstName}}</ui-select-match>
+            <ui-select-choices repeat="customer in salesDetailCtrl.customers | filter: $select.search">
+              <div ng-bind-html="customer.firstName +' '+ customer.lastName | highlight: $select.search"></div>
+              <small ng-bind-html="customer.emailAdress| highlight: $select.search"></small>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="Car">Car</label>
+          <ui-select ng-model="salesDetailCtrlselectedCustomer" theme="bootstrap">
+            <ui-select-match placeholder="Select or search for a whip">{{$select.selected.make}}</ui-select-match>
+            <ui-select-choices repeat="vehicles in salesDetailCtrl.vehicles | filter: $select.search">
+              <div ng-bind-html="vehicles.year+' '+vehicles.make+' '+vehicles.model | highlight: $select.search"></div>
+
+            </ui-select-choices>
+          </ui-select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="text" class="form-control" ng-model="salesDetailCtrl.sales.salePrice">
+      </div>
+      <div class="form-group">
+        <label for="indate">Invoice Date</label>
+          <input id="indate" type="text" class="form-control" ng-model="salesDetailCtrl.sales.invoiceDate">
+      </div>
+      <div class="form-group">
+        <label for="paydate">Payment Date</label>
+          <input id="paydate" type="text" class="form-control" ng-model="salesDetailCtrl.sales.paymentRecivedDate">
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer clearfix">
+    <button class="btn btn-success pull-right" ng-click="salesDetailCtrl.save()">Save
+      <i class="glyphicon glyphicon-save"></i>
+    </button>
+  </div>
+</div>

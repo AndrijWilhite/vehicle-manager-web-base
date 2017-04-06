@@ -1,2 +1,34 @@
-<h1>customer detail page</h1>
-<pre>{{customerDetailCtrl.state | json}}</pre>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Edit Customer
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" class="form-control" ng-model="customerDetailCtrl.customers.firstName">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" type="text" class="form-control" ng-model="customerDetailCtrl.customers.lastName">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="emailAdd">Email Adress</label>
+        <input id="emailAdd" type="text" class="form-control" ng-model="customerDetailCtrl.customers.emailAdress">
+      </div>
+      <div class="form-group">
+        <label for="tele">Telephone</label>
+          <input id="tele" type="text" class="form-control" ng-model="customerDetailCtrl.customers.telephone">
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer clearfix">
+    <button class="btn btn-success pull-right" ng-click="customerDetailCtrl.save()">Save
+      <i class="glyphicon glyphicon-save"></i>
+    </button>
+  </div>
+</div>

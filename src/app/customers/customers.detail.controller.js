@@ -11,15 +11,30 @@
     function CustomerDetailController(customersFactory, $stateParams) {
         var vm = this;
 
+        vm.save = save;
+
         activate();
 
         function activate() {
+          var customerId = $stateParams.id;
+
           customersFactory
-          .getById($stateParams.id)
+          .getById(customerId)
           .then(function(customers){
             vm.customers = customers;
+          })
+          .catch(function(error){
+            alert(error)
 
           });
+        }
+
+        function save(){
+          customersFactory
+          .update(vm.customers.customerID, vm.customers)
+          .then(function(){
+            alert('customer updated');
+          })
         }
     }
 })();

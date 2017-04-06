@@ -31,12 +31,12 @@ gulp.task('watch', function() {
 });
 
 /* reloads the browser */
-gulp.task('reload', function() {
+gulp.task('reload',  function() {
     return browserSync.reload();
 })
 
 /* starts a browser-sync server */
-gulp.task('serve', ['inject', 'watch'], function() {
+gulp.task('serve',['inject', 'watch'], function() {
     return browserSync.init({
         server: './src/',
 				browser: 'chrome'

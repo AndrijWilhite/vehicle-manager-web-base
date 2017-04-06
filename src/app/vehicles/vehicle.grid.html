@@ -11,24 +11,24 @@
       <th width="1%"></th>
     </tr>
   </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <a ui-sref="vehicles.detail({id:1})" class="btn btn-primary">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-        </td>
-        <td>
-          <a href="" class="btn btn-danger">
-              <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </td>
-      </tr>
-    </tbody>
+  <tbody>
+    <tr ng-repeat="vehicle in vehicleGridCtrl.vehicles">
+      <td>{{vehicle.make}}</td>
+      <td>{{vehicle.model}}</td>
+      <td>{{vehicle.year}}</td>
+      <td>{{vehicle.color.description}}</td>
+      <td>{{vehicle.description}}</td>
+      <td>{{vehicle.retailPrice | currency}}</td>
+      <td>
+        <a ui-sref="vehicles.detail({ id: vehicle.vehicleID })" class="btn btn-primary">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+      </td>
+      <td>
+        <a ng-click="vehicleGridCtrl.byebye(vehicle)" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
 </table>

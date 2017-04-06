@@ -4,6 +4,8 @@
     angular
         .module('app', [
             'ui.router',
+            'ui.select',
+            'ngSanitize',
             'app.customers',
             'app.dashboard',
             'app.vehicle',
@@ -71,7 +73,7 @@
             })
             .state('sales.detail', {
               url: '/detail?id',
-              controller: 'salesDetailController as salesDetailCtrl',
+              controller: 'SalesDetailController as salesDetailCtrl',
               templateUrl: 'app/sales/sales.detail.html'
             })
         });

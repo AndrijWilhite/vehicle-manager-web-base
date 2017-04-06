@@ -21,20 +21,21 @@
 
         function getAll(){
           return $http
-              .get(apiUrl + 'Customers')
+              .get(apiUrl + 'customers')
               .then(function(response){
                 return response.data;
               });
             }
           function getById(id){
             return $http
-                .get(apiUrl + id)
+                .get(apiUrl+'customers/'+ id)
                 .then(function(response){
                   return response.data;
+
                 });
           }
           function update(id, customer){
-                return $http.put(apiUrl + id, 'Customers');
+                return $http.put(apiUrl+'customers/' + id, customer);
           }
           function create(customer){
             return $http
@@ -45,7 +46,7 @@
           }
           function remove(id){
             return $http
-            .delete(apiUrl + id)
+            .delete(apiUrl +'Customers/' + id)
             .then(function(response){
               return response.data;
             });
