@@ -8,7 +8,7 @@
     "gulp-inject": "^4.2.0",
     "wiredep": "^4.0.0"
   },
-  {
+  
   "name": "vehicle-manager-frontend",
   "version": "1.0.0",
   "main": "index.js",
