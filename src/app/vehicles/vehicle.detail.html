@@ -16,22 +16,30 @@
           <input id="model" type="text" class="form-control" ng-model="vehicleDetailCtrl.vehicles.model">
         </div>
       </div>
+      <div class="col-xs-6">
       <div class="form-group">
         <label for="year">Year</label>
-        <input id="year" type="text" class="form-control" ng-model="vehicleDetailCtrl.vehicles.year">
+        <input id="year" type="date" class="form-control" ng-model="vehicleDetailCtrl.vehicles.year">
       </div>
+    </div>
+    <div class="col-xs-6">
       <div class="form-group">
         <label for="color">Color</label>
           <input id="color" type="text" class="form-control" ng-model="vehicleDetailCtrl.vehicles.color.description">
       </div>
+    </div>
+    <div class="col-xs-6">
       <div class="form-group">
         <label for="type">Type</label>
           <input id="type" type="text" class="form-control" ng-model="vehicleDetailCtrl.vehicles.description">
       </div>
+    </div>
+    <div class="col-xs-6">
       <div class="form-group">
         <label for="msrp">MSRP</label>
-          <input id="msrp" type="text" class="form-control" ng-model="vehicleDetailCtrl.vehicles.retailPrice">
+          <input id="msrp" type="text" class="form-control" ng-model="'$' + vehicleDetailCtrl.vehicles.retailPrice">
       </div>
+    </div>
     </div>
   </div>
   <div class="panel-footer clearfix">
